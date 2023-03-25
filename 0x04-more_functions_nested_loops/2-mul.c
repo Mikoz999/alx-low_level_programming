@@ -7,7 +7,7 @@
  * Return: addition of a and b result
  */
 
-int mul(int a, int b)
-{
-	return (a * b);
+int mul(int a, int b) {
+  return (a * b);
 }
+
