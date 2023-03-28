@@ -33,6 +33,9 @@ int main(void)
     }
 
     putchar('\n');
+    fprintf(stderr, "%s", "Anything\n");
+
+    printf("\n");
 
     return (0);
 }
