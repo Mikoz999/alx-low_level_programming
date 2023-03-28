@@ -8,49 +8,25 @@
  * Return: Always 0.
  */
 
-int main(void)
-{
-    char password[84];
-    int index = 0, sum = 0, diff_half1, diff_half2;
+int main(int argc, char *argv[]) {
+    srand(time(NULL));
 
-    srand(time(0));
-
-    // Generate password with a sum of characters equal to 2772
-    while (sum < 2772)
-    {
-        password[index] = 33 + rand() % 94;
-        sum += password[index];
-        index++;
-    }
-    password[index] = '\0';
-
-    // If the sum of characters is not 2772, adjust the password
-    if (sum != 2772)
-    {
-        diff_half1 = (sum - 2772) / 2;
-        diff_half2 = (sum - 2772) / 2;
-        if ((sum - 2772) % 2 != 0)
-            diff_half1++;
-
-        for (index = 0; password[index]; index++)
-        {
-            if (password[index] >= (33 + diff_half1))
-            {
-                password[index] -= diff_half1;
-                break;
-            }
-        }
-        for (index = 0; password[index]; index++)
-        {
-            if (password[index] >= (33 + diff_half2))
-            {
-                password[index] -= diff_half2;
-                break;
-            }
+    /* Generate password with a sum of characters equal to 2772 */
+    int sum = 0;
+    while (sum < 2772) {
+        int r = rand() % 62;
+        if (r < 10) {
+            putchar('0' + r);
+            sum += r;
+        } else if (r < 36) {
+            putchar('a' + r - 10);
+            sum += r - 10;
+        } else {
+            putchar('A' + r - 36);
+            sum += r - 36;
         }
     }
-    printf("%s\n", password);
-
-    return (0);
+    putchar('\n');
+    return 0;
 }
 
