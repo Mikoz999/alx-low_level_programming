@@ -9,13 +9,14 @@
 
 char *rot13(char *s)
 {
-    int i, j;
+    int i;
+    unsigned long int j;
     char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
     for (i = 0; s[i]; i++)
     {
-        if (s[i] >= 'a' && s[i] <= 'z' || s[i] >= 'A' && s[i] <= 'Z')
+        if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
         {
             for (j = 0; j < sizeof(a); j++)
             {
