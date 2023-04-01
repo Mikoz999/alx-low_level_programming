@@ -1,17 +1,18 @@
-#include <stdio.h> 
- /** 
-  * main - Entry point 
-  * 
-  * Return: Always 0 (Success) 
-  */ 
- int main(void) 
- { 
- char abc; 
+#include <stdio.h> 
   
- for (abc = 'a'; abc <= 'z'; abc++) 
- { 
- putchar(abc); 
- } 
- putchar('\n'); 
- return (0); 
- }
+/** 
+ * main - entry point 
+ * Return: 0 (success) 
+ */ 
+int main(void) 
+{ 
+         char lcase = 'a'; 
+  
+         while (lcase <= 'z') 
+         { 
+                 putchar (lcase); 
+                 lcase++; 
+         } 
+         putchar ('\n'); 
+         return (0); 
+}
