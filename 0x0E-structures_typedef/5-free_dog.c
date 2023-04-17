@@ -9,9 +9,9 @@ void free_dog(dog_t *d)
 { 
     if (d != NULL) 
     { 
-        free(d->owner); // free memory allocated for owner name 
-        free(d->name);  // free memory allocated for dog name 
-        free(d);        // free memory allocated for dog struct 
+        free(d->owner); 
+        free(d->name); 
+        free(d); 
     } 
 }
 
