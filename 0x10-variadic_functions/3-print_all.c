@@ -55,8 +55,7 @@ void print_all(const char * const format, ...)
         }
 
         /* Clean up the va_list */
-        va_end(args);
-
         printf("\n");
-}
+	va_end(args);
 
+}
