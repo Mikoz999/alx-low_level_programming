@@ -1,19 +1,26 @@
 section .data
-    message db "Hello, Holberton", 0xA
+    hello db "Hello, Holberton", 0
+    format db "%s\n", 0
 
 section .text
-    global _start
+    global main
+    extern printf, exit
 
-_start:
-    ; Write the message to stdout
-    mov rax, 1                  ; File descriptor: stdout
-    mov rdi, 1                  ; Buffer (message) to write
-    mov rsi, message            ; Length of the message
-    mov rdx, 16                 ; Number of bytes to write
-    syscall
+main:
+    ; Set up stack frame
+    push rbp
+    mov rbp, rsp
 
-    ; Exit program
-    mov rax, 60                 ; System call number for exit
-    xor rdi, rdi                ; Exit status (0)
-    syscall
+    ; Print the string
+    mov rdi, format
+    mov rsi, hello
+    xor rax, rax ; Clear RAX register
+    call printf
+
+    ; Clean up stack frame
+    leave
+
+    ; Exit the program
+    xor edi, edi
+    call exit
 
