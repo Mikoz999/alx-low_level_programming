@@ -1,22 +1,18 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - check the code
+ * factorial - Returns the factorial of a given number.
+ * @n: The number to calculate the factorial of.
  *
- * Return: Always 0.
+ * Return: The factorial of the number, or -1 if an error occurs.
  */
-int main(void)
+int factorial(int n)
 {
-    int r;
-
-    r = factorial(1);
-    printf("%d\n", r);
-    r = factorial(5);
-    printf("%d\n", r);
-    r = factorial(10);
-    printf("%d\n", r);
-    r = factorial(-1024);
-    printf("%d\n", r);
-    return (0);
+	if (n < 0)
+		return (-1);
+	else if (n == 0)
+		return (1);
+	else
+		return (n * factorial(n - 1));
 }
+
